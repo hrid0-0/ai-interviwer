@@ -63,6 +63,7 @@ def process_audio():
         return text
     return None
 
+# Streamlit App Title
 st.title("Technical Interview Practice")
 
 # Sidebar for interview settings
@@ -99,10 +100,10 @@ if st.session_state.problem_generated:
     # Code/notes area
     if interview_type == "coding":
         code = st.code_editor("Write your code here", language="python", height=300)
-    elif interview_type == "sql":
-        code = st.code_editor("Write your query here", language="sql", height=300)
-    else:
-        code = st.text_area("Write your notes here", height=300)
+    elif interview_type == "system design":
+        code = st.text_area("Write your system design here", height=300)
+    elif interview_type == "behavioral":
+        code = st.text_area("Write your behavioral responses here", height=300)
     
     # Chat area
     st.header("Chat")

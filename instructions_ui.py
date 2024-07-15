@@ -10,11 +10,24 @@ instruction = {
     "legal": "Legal information..."
 }
 
+# Dummy classes for demonstration
+class DummyManager:
+    def is_working(self):
+        return True
+    
+    class config:
+        class tts:
+            name = "Dummy TTS"
+        class stt:
+            name = "Dummy STT"
+        class llm:
+            name = "Dummy LLM"
+
 # Replace this with a simple function if you don't have the utils.ui module
 def get_status_color(manager):
     return "🟢" if manager.is_working() else "🔴"
 
-def get_instructions_ui(llm, tts, stt, default_audio_params):
+def get_instructions_ui(llm, tts, stt):
     st.title("Instructions")
 
     col1, col2 = st.columns([2, 1])
@@ -57,24 +70,10 @@ def get_instructions_ui(llm, tts, stt, default_audio_params):
     st.markdown(instruction["acknowledgements"])
     st.markdown(instruction["legal"])
 
-# Dummy classes for demonstration
-class DummyManager:
-    def is_working(self):
-        return True
-    
-    class config:
-        class tts:
-            name = "Dummy TTS"
-        class stt:
-            name = "Dummy STT"
-        class llm:
-            name = "Dummy LLM"
-
 # Main Streamlit app
 if __name__ == "__main__":
     llm = DummyManager()
     tts = DummyManager()
     stt = DummyManager()
-    default_audio_params = {}
 
-    get_instructions_ui(llm, tts, stt, default_audio_params)
+    get_instructions_ui(llm, tts, stt)
